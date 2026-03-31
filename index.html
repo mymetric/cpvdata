@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentacao — WhatsApp Conversations | Coroas Para Velorio</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8f9fa; color: #1a1a2e; line-height: 1.7; padding: 40px 20px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 34px; font-weight: 700; margin-bottom: 6px; color: #1a1a2e; }
+  .subtitle { color: #6c757d; font-size: 16px; margin-bottom: 40px; }
+  h2 { font-size: 24px; font-weight: 600; color: #1a1a2e; margin: 40px 0 16px; padding-bottom: 8px; border-bottom: 2px solid #dee2e6; }
+  h3 { font-size: 19px; font-weight: 600; color: #343a40; margin: 24px 0 12px; }
+  p, li { font-size: 16px; color: #495057; }
+  p { margin-bottom: 12px; }
+  ul { padding-left: 20px; margin-bottom: 16px; }
+  li { margin-bottom: 4px; }
+  code { background: #e9ecef; padding: 2px 6px; border-radius: 4px; font-size: 14px; color: #6610f2; font-family: 'SF Mono', 'Fira Code', monospace; }
+  pre { background: #fff; border: 1px solid #dee2e6; border-radius: 8px; padding: 16px; overflow-x: auto; margin: 12px 0 20px; }
+  pre code { background: none; padding: 0; color: #343a40; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 24px; font-size: 15px; }
+  th { background: #e9ecef; color: #495057; font-weight: 600; text-align: left; padding: 12px 14px; border-bottom: 2px solid #dee2e6; text-transform: uppercase; font-size: 12px; letter-spacing: 0.5px; }
+  td { padding: 10px 14px; border-bottom: 1px solid #e9ecef; color: #495057; }
+  tr:hover td { background: #f1f3f5; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+  .badge-green { background: #d3f9d8; color: #2b8a3e; }
+  .badge-yellow { background: #fff3bf; color: #e67700; }
+  .badge-blue { background: #d0ebff; color: #1971c2; }
+  .badge-purple { background: #e5dbff; color: #7048e8; }
+  .badge-gray { background: #e9ecef; color: #6c757d; }
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 20px 0 30px; }
+  .stat-card { background: #fff; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .stat-card .label { font-size: 12px; color: #6c757d; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .stat-card .value { font-size: 32px; font-weight: 700; color: #1a1a2e; }
+  .stat-card .sub { font-size: 13px; color: #6c757d; margin-top: 4px; }
+  .flow-diagram { background: #fff; border: 1px solid #dee2e6; border-radius: 10px; padding: 24px; margin: 16px 0 24px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .flow-step { display: inline-block; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 600; margin: 4px; }
+  .flow-arrow { color: #adb5bd; font-size: 20px; margin: 0 4px; vertical-align: middle; }
+  .quality-bar { height: 10px; border-radius: 5px; background: #e9ecef; overflow: hidden; margin: 4px 0; }
+  .quality-fill { height: 100%; border-radius: 5px; }
+  .quality-fill.green { background: linear-gradient(90deg, #51cf66, #2b8a3e); }
+  .quality-fill.yellow { background: linear-gradient(90deg, #fcc419, #e67700); }
+  .quality-fill.red { background: linear-gradient(90deg, #ff6b6b, #e03131); }
+  .section-card { background: #fff; border: 1px solid #dee2e6; border-radius: 10px; padding: 24px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; background: #e9ecef; color: #6c757d; margin-right: 4px; }
+  .divider { border: none; border-top: 1px solid #dee2e6; margin: 40px 0; }
+  .toc { background: #fff; border: 1px solid #dee2e6; border-radius: 10px; padding: 20px 24px; margin-bottom: 32px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+  .toc a { color: #1971c2; text-decoration: none; font-size: 15px; }
+  .toc a:hover { text-decoration: underline; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 6px; }
+  .match-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .match-label { width: 220px; font-size: 15px; color: #495057; flex-shrink: 0; }
+  .match-bar-wrap { flex: 1; }
+  .match-pct { width: 60px; text-align: right; font-size: 15px; font-weight: 600; color: #1a1a2e; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>WhatsApp Conversations</h1>
+<p class="subtitle">Coroas Para Velorio &mdash; Documentacao dos modelos dbt &mdash; Gerado em 31/03/2026</p>
+
+<div class="toc">
+  <strong style="color:#1a1a2e; font-size:14px;">Indice</strong>
+  <ol>
+    <li><a href="#visao-geral">Visao geral</a></li>
+    <li><a href="#fluxo">Fluxo de dados</a></li>
+    <li><a href="#granular">Modelo Granular: coroasparavelorio_whatsapp_conversations</a></li>
+    <li><a href="#join">Modelo Join: coroasparavelorio_whatsapp_conversations_orders</a></li>
+    <li><a href="#qualidade">Qualidade dos matches</a></li>
+    <li><a href="#insights">Insights da analise</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="visao-geral">1. Visao geral</h2>
+
+<p>Dois modelos dbt que transformam mensagens brutas do WhatsApp (Botmaker) em <strong>conversas</strong>, enriquecidas com dados de tracking (widget + Google Ads direto) e associadas a pedidos.</p>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="label">Conversas</div>
+    <div class="value">49.759</div>
+    <div class="sub">desde out/2025</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Contatos unicos</div>
+    <div class="value">37.553</div>
+    <div class="sub">telefones distintos</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Msgs por conversa</div>
+    <div class="value">~26</div>
+    <div class="sub">media</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Duracao media</div>
+    <div class="value">~4h20</div>
+    <div class="sub">260 minutos</div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="fluxo">2. Fluxo de dados</h2>
+
+<div class="flow-diagram">
+  <div class="flow-step" style="background:#d3f9d8; color:#2b8a3e;">whatsapp.messages</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step" style="background:#d0ebff; color:#1971c2;">coroasparavelorio_whatsapp_conversations</div>
+  <span class="flow-arrow">&rarr;</span>
+  <div class="flow-step" style="background:#e5dbff; color:#7048e8;">coroasparavelorio_whatsapp_conversations_orders</div>
+  <br><br>
+  <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:8px;">
+    <div>
+      <span class="tag">LEFT JOIN</span>
+      <div class="flow-step" style="background:#fff3bf; color:#e67700; font-size:12px;">coroasparavelorio_whatsapp_widget</div>
+    </div>
+    <div>
+      <span class="tag">LEFT JOIN</span>
+      <div class="flow-step" style="background:#fff3bf; color:#e67700; font-size:12px;">whatsapp.cpv_wpp_ext</div>
+    </div>
+    <div>
+      <span class="tag">LEFT JOIN</span>
+      <div class="flow-step" style="background:#fff3bf; color:#e67700; font-size:12px;">coroasparavelorio_orders_dedup</div>
+    </div>
+  </div>
+</div>
+
+<h3>Logica de sessionizacao</h3>
+<div class="section-card">
+  <p>Cada mensagem e ordenada por <code>contact_id</code> + <code>message_at</code>. Usando <code>LAG</code>, calcula-se o gap em horas entre mensagens consecutivas do mesmo contato. Se o gap for <strong>&gt; 24 horas</strong>, uma nova conversa e criada via <code>running SUM</code>.</p>
+<pre><code>mensagens ordenadas por contact_id + message_at
+  -> LAG para calcular gap entre mensagens
+  -> gap > 24h = nova conversa (running SUM)
+  -> GROUP BY contact_id + conversation_no</code></pre>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="granular">3. Modelo Granular</h2>
+<p><code>dbt_granular.coroasparavelorio_whatsapp_conversations</code> <span class="badge badge-blue">view</span></p>
+<p><strong>Granularidade:</strong> 1 linha = 1 conversa</p>
+<p><strong>Fonte:</strong> <code>mymetric-hub-shopify.whatsapp.messages</code> (filtro: <code>event_name = 'coroasparavelorio_botmaker_messages'</code>)</p>
+
+<table>
+  <thead>
+    <tr><th>Campo</th><th>Tipo</th><th>Descricao</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>contact_id</code></td><td>STRING</td><td>Telefone do cliente com DDI (ex: 5519991274317)</td></tr>
+    <tr><td><code>customer_id</code></td><td>STRING</td><td>ID do cliente no Botmaker</td></tr>
+    <tr><td><code>first_name</code></td><td>STRING</td><td>Nome do cliente</td></tr>
+    <tr><td><code>last_name</code></td><td>STRING</td><td>Sobrenome do cliente</td></tr>
+    <tr><td><code>conversation_no</code></td><td>INT</td><td>Numero sequencial da conversa por contato</td></tr>
+    <tr><td><code>conversation_id</code></td><td>STRING</td><td>ID unico (contact_id_conversationNo)</td></tr>
+    <tr><td><code>conversation_started_at</code></td><td>TIMESTAMP</td><td>1a mensagem da conversa</td></tr>
+    <tr><td><code>conversation_ended_at</code></td><td>TIMESTAMP</td><td>Ultima mensagem da conversa</td></tr>
+    <tr><td><code>duration_minutes</code></td><td>INT</td><td>Duracao total em minutos</td></tr>
+    <tr><td><code>total_messages</code></td><td>INT</td><td>Total de mensagens trocadas</td></tr>
+    <tr><td><code>user_messages</code></td><td>INT</td><td>Mensagens enviadas pelo cliente</td></tr>
+    <tr><td><code>operator_messages</code></td><td>INT</td><td>Mensagens enviadas pelo operador</td></tr>
+    <tr><td><code>first_operator_response_at</code></td><td>TIMESTAMP</td><td>Timestamp da 1a resposta do operador</td></tr>
+    <tr><td><code>first_response_time_minutes</code></td><td>INT</td><td>Tempo ate 1a resposta (SLA)</td></tr>
+    <tr><td><code>queue</code></td><td>STRING</td><td>Fila de atendimento</td></tr>
+    <tr><td><code>operator_name</code></td><td>STRING</td><td>Nome do operador principal</td></tr>
+    <tr><td><code>whatsapp_number</code></td><td>STRING</td><td>Numero WPP da empresa</td></tr>
+    <tr><td><code>chat_channel_id</code></td><td>STRING</td><td>ID do canal no Botmaker</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="join">4. Modelo Join</h2>
+<p><code>dbt_join.coroasparavelorio_whatsapp_conversations_orders</code> <span class="badge badge-purple">view</span></p>
+<p><strong>Granularidade:</strong> 1 linha = 1 conversa enriquecida</p>
+
+<h3>Classificacao do lead</h3>
+<table>
+  <thead>
+    <tr><th>Campo</th><th>Tipo</th><th>Descricao</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>lead_source</code></td><td>STRING</td><td><code>google_direct_whatsapp</code> | <code>widget</code> | <code>organic</code></td></tr>
+  </tbody>
+</table>
+
+<h3>Dados do Widget <span class="tag">LEFT JOIN +-30min</span></h3>
+<table>
+  <thead>
+    <tr><th>Campo</th><th>Tipo</th><th>Descricao</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>widget_received_at</code></td><td>TIMESTAMP</td><td>Quando clicou no widget</td></tr>
+    <tr><td><code>widget_email</code></td><td>STRING</td><td>Email informado no widget</td></tr>
+    <tr><td><code>ga_client_id</code></td><td>STRING</td><td>Client ID do Google Analytics</td></tr>
+    <tr><td><code>ga_session_id</code></td><td>STRING</td><td>Session ID do GA</td></tr>
+    <tr><td><code>widget_gclid</code></td><td>STRING</td><td>GCLID vindo do widget</td></tr>
+  </tbody>
+</table>
+
+<h3>Google Ads direto <span class="tag">LEFT JOIN +-30min</span></h3>
+<table>
+  <thead>
+    <tr><th>Campo</th><th>Tipo</th><th>Descricao</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>ext_created_at</code></td><td>TIMESTAMP</td><td>1a msg com parametros Google Ads</td></tr>
+    <tr><td><code>ext_gclid</code></td><td>STRING</td><td>GCLID direto do anuncio</td></tr>
+    <tr><td><code>ext_gbraid</code></td><td>STRING</td><td>Gbraid (iOS/cross-device)</td></tr>
+    <tr><td><code>ext_campaign_id</code></td><td>INT</td><td>Campaign ID</td></tr>
+    <tr><td><code>ext_ad_group_id</code></td><td>INT</td><td>Ad Group ID</td></tr>
+    <tr><td><code>ext_ad_id</code></td><td>INT</td><td>Ad ID</td></tr>
+  </tbody>
+</table>
+
+<h3>Tracking consolidado</h3>
+<table>
+  <thead>
+    <tr><th>Campo</th><th>Tipo</th><th>Descricao</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>gclid</code></td><td>STRING</td><td>coalesce(ext_gclid, widget_gclid)</td></tr>
+    <tr><td><code>gbraid</code></td><td>STRING</td><td>Gbraid do Google Ads</td></tr>
+    <tr><td><code>campaign_id</code></td><td>INT</td><td>ID da campanha</td></tr>
+    <tr><td><code>ad_group_id</code></td><td>INT</td><td>ID do grupo de anuncios</td></tr>
+    <tr><td><code>ad_id</code></td><td>INT</td><td>ID do anuncio</td></tr>
+  </tbody>
+</table>
+
+<h3>Order associado <span class="tag">LEFT JOIN -24h a +7d</span></h3>
+<table>
+  <thead>
+    <tr><th>Campo</th><th>Tipo</th><th>Descricao</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>transaction_id</code></td><td>INT</td><td>ID do pedido</td></tr>
+    <tr><td><code>order_created_at</code></td><td>TIMESTAMP</td><td>Data do pedido</td></tr>
+    <tr><td><code>order_status</code></td><td>STRING</td><td>paid / refunded / pending / voided</td></tr>
+    <tr><td><code>order_value</code></td><td>FLOAT</td><td>Valor do pedido</td></tr>
+    <tr><td><code>order_email</code></td><td>STRING</td><td>Email do comprador</td></tr>
+    <tr><td><code>order_source</code></td><td>STRING</td><td>Canal (WHATSAPP, ONLINE, etc)</td></tr>
+    <tr><td><code>order_city</code></td><td>STRING</td><td>Cidade</td></tr>
+    <tr><td><code>order_region</code></td><td>STRING</td><td>UF</td></tr>
+    <tr><td><code>hours_conversation_to_order</code></td><td>INT</td><td>Diferenca em horas (negativo = conversa antes)</td></tr>
+    <tr><td><code>has_order</code></td><td>BOOL</td><td>true / false</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================================================ -->
+<h2 id="qualidade">5. Qualidade dos matches</h2>
+
+<h3>5.1 Precisao dos joins (duplicacao 1:N)</h3>
+
+<div class="section-card">
+  <div class="match-row">
+    <div class="match-label"><span class="badge badge-green">Widget</span> 1:1</div>
+    <div class="match-bar-wrap"><div class="quality-bar"><div class="quality-fill green" style="width:99.7%"></div></div></div>
+    <div class="match-pct">99,7%</div>
+  </div>
+  <div class="match-row">
+    <div class="match-label"><span class="badge badge-green">Ext (Google direto)</span> 1:1</div>
+    <div class="match-bar-wrap"><div class="quality-bar"><div class="quality-fill green" style="width:99.3%"></div></div></div>
+    <div class="match-pct">99,3%</div>
+  </div>
+  <div class="match-row">
+    <div class="match-label"><span class="badge badge-yellow">Orders</span> 1:1</div>
+    <div class="match-bar-wrap"><div class="quality-bar"><div class="quality-fill yellow" style="width:83.3%"></div></div></div>
+    <div class="match-pct">83,3%</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr><th>Join</th><th>Conversas matchadas</th><th>1:1</th><th>1:2</th><th>1:3+</th><th>% 1:1</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Widget</td><td>17.609</td><td>17.558</td><td>51</td><td>0</td><td><span class="badge badge-green">99,7%</span></td></tr>
+    <tr><td>Ext (Google direto)</td><td>2.496</td><td>2.478</td><td>18</td><td>0</td><td><span class="badge badge-green">99,3%</span></td></tr>
+    <tr><td>Orders</td><td>19.003</td><td>15.837</td><td>2.638</td><td>528</td><td><span class="badge badge-yellow">83,3%</span></td></tr>
+  </tbody>
+</table>
+
+<h3>5.2 Orders 1:N — sao falsos positivos?</h3>
+<div class="section-card">
+  <p>Dos matches 1:2+, <strong>88,5% tem o mesmo email</strong> (mesmo cliente, pedidos recorrentes). Apenas 11,5% tem emails diferentes (possivel colisao de 8 digitos).</p>
+  <div class="match-row">
+    <div class="match-label">Mesmo cliente (mesmo email)</div>
+    <div class="match-bar-wrap"><div class="quality-bar"><div class="quality-fill green" style="width:88.5%"></div></div></div>
+    <div class="match-pct">88,5%</div>
+  </div>
+  <div class="match-row">
+    <div class="match-label">Emails diferentes (possivel FP)</div>
+    <div class="match-bar-wrap"><div class="quality-bar"><div class="quality-fill red" style="width:11.5%"></div></div></div>
+    <div class="match-pct">11,5%</div>
+  </div>
+</div>
+
+<h3>5.3 Cobertura: vendas WPP com conversa</h3>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="label">Vendas WPP total</div>
+    <div class="value">16.869</div>
+    <div class="sub">R$ 7,77M</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Com match conversa</div>
+    <div class="value" style="color:#2b8a3e">98,4%</div>
+    <div class="sub">16.595 orders | R$ 7,68M</div>
+  </div>
+  <div class="stat-card">
+    <div class="label">Sem match</div>
+    <div class="value" style="color:#6c757d">1,6%</div>
+    <div class="sub">274 orders | R$ 91k</div>
+  </div>
+</div>
+
+<h3>5.4 Cobertura: widgets com conversa</h3>
+<div class="section-card">
+  <p>No mesmo periodo (desde out/2025): <strong>82% dos leads do widget</strong> (18.584 de 22.676) tem conversa associada no Botmaker.</p>
+  <div class="match-row">
+    <div class="match-label">Widget com conversa</div>
+    <div class="match-bar-wrap"><div class="quality-bar"><div class="quality-fill green" style="width:82%"></div></div></div>
+    <div class="match-pct">82,0%</div>
+  </div>
+</div>
+
+<h3>5.5 Riscos e limitacoes conhecidos</h3>
+<div class="section-card">
+  <table>
+    <thead>
+      <tr><th>Risco</th><th>Impacto</th><th>Descricao</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-yellow">Medio</span></td>
+        <td>~165 orders</td>
+        <td>Telefone generico <code>551100000000</code> gera falsos positivos por colisao de 8 digitos (00000000)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gray">Baixo</span></td>
+        <td>~4.191 orders</td>
+        <td>Orders com telefone &lt; 8 digitos nao matcham (mas tambem nao geram falso positivo)</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-gray">Baixo</span></td>
+        <td>~169 conversas</td>
+        <td>11,5% dos matches 1:N tem emails diferentes — possivel colisao de 8 digitos</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="insights">6. Insights da analise</h2>
+
+<h3>6.1 Timing: conversa vs venda</h3>
+<div class="section-card">
+  <p>Nas vendas via WhatsApp, a <strong>venda e registrada primeiro</strong> e a conversa acontece logo em seguida. 88% das conversas iniciam ate 2h apos o registro do pedido. <em>(Orders em BRT, mensagens em UTC — corrigido.)</em></p>
+  <table>
+    <thead>
+      <tr><th>Timing</th><th>Orders</th><th>%</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Conversa &gt;8h ANTES da venda</td><td>36</td><td>0,2%</td></tr>
+      <tr><td>Conversa 4-8h ANTES da venda</td><td>6</td><td>0,0%</td></tr>
+      <tr><td>Conversa 2-4h ANTES da venda</td><td>11</td><td>0,1%</td></tr>
+      <tr><td>Conversa 30min-2h ANTES da venda</td><td>23</td><td>0,1%</td></tr>
+      <tr><td>Conversa 0-30min ANTES da venda</td><td>32</td><td>0,2%</td></tr>
+      <tr><td>Conversa 0-30min DEPOIS da venda</td><td>8.646</td><td><strong>52,1%</strong></td></tr>
+      <tr><td>Conversa 30min-2h DEPOIS da venda</td><td>5.953</td><td><strong>35,9%</strong></td></tr>
+      <tr><td>Conversa 2-8h DEPOIS da venda</td><td>1.164</td><td>7,0%</td></tr>
+      <tr><td>Conversa 8-24h DEPOIS da venda</td><td>540</td><td>3,3%</td></tr>
+      <tr><td>Conversa &gt;24h DEPOIS da venda</td><td>192</td><td>1,2%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>6.2 Distribuicao por lead source</h3>
+<table>
+  <thead>
+    <tr><th>Lead Source</th><th>Conversas</th><th>%</th><th>Com GCLID</th><th>Com Order</th><th>Valor Orders</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><span class="badge badge-gray">organic</span></td><td>28.162</td><td>58,4%</td><td>0</td><td>16.807</td><td>R$ 7,68M</td></tr>
+    <tr><td><span class="badge badge-blue">widget</span></td><td>17.523</td><td>36,3%</td><td>15.374</td><td>6.270</td><td>R$ 2,82M</td></tr>
+    <tr><td><span class="badge badge-purple">google_direct_whatsapp</span></td><td>2.496</td><td>5,2%</td><td>1.068</td><td>335</td><td>R$ 167k</td></tr>
+  </tbody>
+</table>
+
+<h3>6.3 Funil: Widget &rarr; Conversa &rarr; Order</h3>
+<div class="section-card">
+  <table>
+    <thead>
+      <tr><th>Etapa</th><th>Qty</th><th>Taxa</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Widget leads (periodo)</td><td>22.676</td><td>100%</td></tr>
+      <tr><td>Widget &rarr; Conversa</td><td>18.584</td><td>82,0%</td></tr>
+      <tr><td>Widget &rarr; Conversa &rarr; Order</td><td>5.901</td><td>33,5% das conversas</td></tr>
+      <tr><td>&nbsp;&nbsp;...com GCLID</td><td>5.007</td><td>84,8% dos orders</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3>6.4 Leads organicos: primeiras mensagens</h3>
+<div class="section-card">
+  <p>Das 28.162 conversas classificadas como <span class="badge badge-gray">organic</span>, a primeira mensagem do usuario revela que parte delas na verdade vem do Google Ads sem rastreamento no widget/ext:</p>
+  <table>
+    <thead>
+      <tr><th>Tipo de 1a mensagem</th><th>Qty</th><th>%</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Organica real (digitada pelo usuario)</td><td>9.858</td><td><strong>76,5%</strong></td></tr>
+      <tr><td>Msg padrao Google Ads <em>"Ola, gostaria de mais informacoes..."</em></td><td>2.276</td><td>17,7%</td></tr>
+      <tr><td>Template Google Ads <em>"Oi, LacosParaSempre..."</em></td><td>757</td><td>5,9%</td></tr>
+    </tbody>
+  </table>
+  <p><strong>23,5% dos leads "organicos"</strong> usam mensagens padrao do Google Ads, indicando que vieram de anuncios mas nao tiveram o tracking capturado pelo widget ou cpv_wpp_ext.</p>
+</div>
+
+<h3>Amostras de primeiras mensagens por lead source</h3>
+
+<h3><span class="badge badge-gray">organic</span> Mensagens organicas reais (amostra de 40)</h3>
+<div class="section-card">
+  <table>
+    <thead>
+      <tr><th>#</th><th>Primeira mensagem</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>Boa tarde, ha possibilidade de uma coroa de flores para hoje no funeral Ossel Jardim Avelino?</td></tr>
+      <tr><td>2</td><td>Boa tarde! Digerlaine, do Departamento de Letras da PUC-Rio. Preciso que entreguem uma coroa de flores super luxo 03...</td></tr>
+      <tr><td>3</td><td>Gostaria de entregar Coroa em BH</td></tr>
+      <tr><td>4</td><td>Bom dia! Sou a Edina de Sao Jose do Rio Preto</td></tr>
+      <tr><td>5</td><td>Ola, tudo bem? Gostaria de saber os valores das coroas de flores</td></tr>
+      <tr><td>6</td><td>Bom dia! Por favor, me informe o valor da coroa de flores</td></tr>
+      <tr><td>7</td><td>Pode por favor me informar se a coroa super luxo 1 M vai com uma faixa com nome da familia q envia?</td></tr>
+      <tr><td>8</td><td>Ola, recebi o email do meu pedido na Lacos Corporativos e gostaria de mais informacoes.</td></tr>
+      <tr><td>9</td><td>Bom dia! Tudo bem? Eu sou Amanda, faco parte da equipe de EX da empresa cadastrada como ICTS...</td></tr>
+      <tr><td>10</td><td>Boa tarde, gostaria de fazer um pedido. CNPJ 15721697000167. Luxo 4</td></tr>
+      <tr><td>11</td><td>Quero uma coroa de flores</td></tr>
+      <tr><td>12</td><td>Ola, gostaria de encomendar uma coroa para velorio em Goiania</td></tr>
+      <tr><td>13</td><td>Bom dia! Queria confirmar a disponibilidade dessa coroa para Goiania</td></tr>
+      <tr><td>14</td><td>Manda seus exemplos de coroa</td></tr>
+      <tr><td>15</td><td>Fazer um pedido</td></tr>
+      <tr><td>16</td><td>Voce poderia me encaminhar os modelos de coroa, por gentileza.</td></tr>
+      <tr><td>17</td><td>Ola, bom dia! Sou da empresa Renaissance do Brasil Hotelaria LTDA. CNPJ: 64.089.824/0003-24...</td></tr>
+      <tr><td>18</td><td>Ola, bom dia! Gostaria de fazer um pedido de coroa. Faturamento no CNPJ 60.495.231/0001-45. Seria urgente...</td></tr>
+      <tr><td>19</td><td>Brascal Calcario do Brasil. CNPJ 750134400001-45. Livino Sperafico</td></tr>
+      <tr><td>20</td><td>Camila, boa tarde</td></tr>
+      <tr><td>21</td><td>Ola bom dia, voces vendem flores individuais?</td></tr>
+      <tr><td>22</td><td>Boa tarde. Me chamo Thais Oliveira.</td></tr>
+      <tr><td>23</td><td>Ola, gostaria de mais informacoes sobre coroa de flores para ser entregue no cemiterio dos Amarais</td></tr>
+      <tr><td>24</td><td>Ola, bom dia! Tudo bem contigo?</td></tr>
+      <tr><td>25</td><td>Bom dia, ta funcionando?</td></tr>
+      <tr><td>26</td><td>Boa noite, Elaine!</td></tr>
+      <tr><td>27</td><td>Bom dia td bem?</td></tr>
+      <tr><td>28</td><td>Oie boa tarde</td></tr>
+      <tr><td>29</td><td>Buenos dias</td></tr>
+      <tr><td>30</td><td>Bom dia. Queria comprar uma coroa de flores.</td></tr>
+      <tr><td>31</td><td>Oi sou o Joao Galvino</td></tr>
+      <tr><td>32</td><td>Boa tarde tudo bom?</td></tr>
+      <tr><td>33</td><td>Ola bom dia!</td></tr>
+      <tr><td>34</td><td>Bom dia! Tudo bem?</td></tr>
+      <tr><td>35</td><td>Ola, bom dia</td></tr>
+      <tr><td>36</td><td>Ola, gostaria de mais informacoes</td></tr>
+      <tr><td>37</td><td>bom dia, tudo bem?</td></tr>
+      <tr><td>38</td><td>ola boa tarde</td></tr>
+      <tr><td>39</td><td>Ola boa noite</td></tr>
+      <tr><td>40</td><td>O processo foi totalmente finalizado da minha parte mas notei que o status do pedido nao atualizou no sistema...</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3><span class="badge badge-blue">widget</span> Primeiras mensagens de leads via widget (amostra)</h3>
+<div class="section-card">
+  <p>Leads que passaram pelo site e clicaram no widget de WhatsApp. A primeira mensagem no WPP costuma ser generica ou de saudacao:</p>
+  <table>
+    <thead>
+      <tr><th>Primeira mensagem</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Bom dia. Queria comprar uma coroa de flores.</td></tr>
+      <tr><td>Ola bom dia, voces vendem flores individuais?</td></tr>
+      <tr><td>Boa tarde. Me chamo Thais Oliveira.</td></tr>
+      <tr><td>Poderia me passar os modelos e precos?</td></tr>
+      <tr><td>Oi sou o Joao Galvino</td></tr>
+      <tr><td>Oi Bom Dia!</td></tr>
+      <tr><td>Boa noite</td></tr>
+      <tr><td>Bom dia</td></tr>
+      <tr><td>Olá boa tarde</td></tr>
+      <tr><td>E por rosa cor de rosa ou pink</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h3><span class="badge badge-purple">google_direct_whatsapp</span> Primeiras mensagens de leads via Google Ads direto (amostra)</h3>
+<div class="section-card">
+  <p>Leads que clicaram em anuncios do Google com extensao de mensagem. A primeira mensagem sempre contem <strong>caracteres unicode invisiveis com tracking codificado</strong> (gclid/gbraid, campaign_id, ad_group_id, ad_id) seguido de um template padrao:</p>
+  <table>
+    <thead>
+      <tr><th>Primeira mensagem (parte visivel)</th><th>Tracking</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>"Oi, LaçosParaSempre. Estou precisando de uma coroa de flores e gostaria da ajuda de voces para fazer o pedido."</td><td><span class="badge badge-green">gclid</span></td></tr>
+      <tr><td>"Oi, LaçosParaSempre. Estou precisando de uma coroa de flores e gostaria da ajuda de voces para fazer o pedido."</td><td><span class="badge badge-blue">gbraid</span></td></tr>
+      <tr><td>"Oi, LaçosParaSempre. Estou precisando de uma coroa de flores e gostaria da ajuda de voces para fazer o pedido."</td><td><span class="badge badge-green">gclid</span></td></tr>
+      <tr><td>"Ola, gostaria de mais informacoes - e obrigatorio enviar esta mensagem para iniciar seu atendimento"</td><td><span class="badge badge-blue">gbraid</span></td></tr>
+      <tr><td>(sem texto visivel — apenas tracking codificado)</td><td><span class="badge badge-green">gclid</span></td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:12px;"><strong>Cobertura de tracking na cpv_wpp_ext:</strong></p>
+  <table>
+    <thead>
+      <tr><th>Tipo</th><th>Qty</th><th>%</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Com gclid</td><td>1.131</td><td>41,5%</td></tr>
+      <tr><td>Com gbraid</td><td>1.368</td><td>50,2%</td></tr>
+      <tr><td>Sem tracking</td><td>229</td><td>8,4%</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<hr class="divider">
+<p style="color:#adb5bd; font-size:13px; text-align:center;">Gerado automaticamente via Claude Code &mdash; 31/03/2026</p>
+
+</div>
+</body>
+</html>
